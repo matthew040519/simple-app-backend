@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Category;
+use App\Http\Controllers\Ticket;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware(['cors'])->group(function () {
 
     Route::resource('/category', Category::class);
+    Route::resource('/ticket', App\Http\Controllers\Ticket::class);
 
 });
 
