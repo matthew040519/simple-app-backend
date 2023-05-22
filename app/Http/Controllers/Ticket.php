@@ -39,6 +39,26 @@ class Ticket extends Controller
     public function store(Request $request)
     {
         //
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'category' => 'required',
+        //     'description' => 'required',
+        // ]);
+
+        $ticket = new TicketModel();
+
+        $ticket->name = $request->name;
+        $ticket->email = $request->email;
+        $ticket->category_id = $request->category_id;
+        $ticket->description = $request->description;
+
+        $ticket->save();
+
+        return [
+            "status" => 1,
+            "data" => $ticket
+        ];
     }
 
     /**
